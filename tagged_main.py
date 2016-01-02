@@ -1,3 +1,5 @@
+'''downloads images using urls stored in database created by tagged_start.py'''
+
 import os
 import requests
 import sqlite3
