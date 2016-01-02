@@ -43,17 +43,13 @@ def build_db(access_token, tag,count):
     base_url='https://api.instagram.com/v1/tags/' + tag + '/media/recent'
     r=requests.get(base_url, params={'access_token':access_token})              #first request
     for i in range(1,11):                                                       #next_url is provided in each response
-        print i
         resp=json.loads(r.text)
-        j=1
         for el in resp['data']:
-            print '-----'+str(j)
             url=el['images']['standard_resolution']['url']
             cur.execute('''
             INSERT INTO Urls_To_Do (num, url) VALUES (?,?)''', (count,url))
             conn.commit()
             count+=1
-            j+=1
         next_url=resp['pagination']['next_url']
         r=requests.get(next_url)
 
