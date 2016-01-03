@@ -13,3 +13,5 @@ Client ID and Client Secret are provided by Instagram on registering the client.
 
 Usage:
 'geolocation-python' library is used to get the coordinates of the queried location. These coordinates are then plugged into the media search API call provided by Instagram. Data returned is in JSON format. Image urls are extracted and the binary response of each HTTP request is saved as a .jpg file.
+
+Sqlite database is used to store urls. One table stores all the urls in the initial run and another table keeps track of images downloaded in each subsequent run.
